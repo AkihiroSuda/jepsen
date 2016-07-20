@@ -22,7 +22,7 @@ RUN apt-get -y -q update && \
 RUN cd / && wget https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein && mv /lein /usr/bin 
 RUN chmod +x /usr/bin/lein
 
-RUN git clone $JEPSEN_GIT_URL /jepsen
+ADD jepsen /jepsen
 RUN cd /jepsen/jepsen && lein install
 
 ADD ./bashrc /root/.bashrc

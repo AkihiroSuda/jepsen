@@ -177,7 +177,7 @@
       (try+
         (case (:f op)
           :read  (let [value (-> client
-                                 (v/get k {:consistent? true})
+                                 (v/get k {:consistent? true :quorum? true})
                                  (json/parse-string true))]
                    (assoc op :type :ok :value value))
 
